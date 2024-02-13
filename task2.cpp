@@ -9,6 +9,7 @@ using namespace std;
 
 const int ROW = 3;
 const int COLUMN = 3;
+const int winLenght = 3;
 
 char ticTacToe[ROW][COLUMN]{};
 
@@ -43,30 +44,39 @@ void checkingCapacity() {
 
 }
 
-void winning() {
-
+bool winning(char array[ROW][COLUMN], int countWin, char symbol) {
+	
+	return false;
 }
 
+
+
 void gameUser() {
-	while (true) {
+	bool win = true;
+	while (win) {
 		int x, y;
-		cout << "Ход первого игрока";
+		cout << "Ход первого игрока: ";
 		cin >> x >> y;
 		checkingCapacity();
 		ticTacToe[x][y] = 'X';
 		drawBoard(ticTacToe);
-		winning();
+		win = winning(ticTacToe, winLenght, ticTacToe[x][y]);
 
-		cout << "Ход второго игрока";
+		/*if (!win) {
+			break;
+		}
+
+		cout << "Ход второго игрока: ";
 		cin >> x >> y;
 		checkingCapacity();
 		ticTacToe[x][y] = 'O';
 		drawBoard(ticTacToe);
-		winning();
+		win = winning(ticTacToe, winLenght);*/
 	}
 }
 
 void task2() {
 	initTicTacToe();
 	gameUser();
+	cout << endl << "win!!!!";
 }
